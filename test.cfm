@@ -1,3 +1,6 @@
 <cfset aName="Tim">
-<cfoutput>#aName#</cfoutput>
+
+<cfobject type="component" name="myObj" component="myCFC" >
+
+<cfoutput>#myObj.sayHello("Tim")#</cfoutput>
 
