@@ -4,3 +4,4 @@
 
 <cfoutput>#myObj.sayHello("Tim")#</cfoutput>
 
+I am modifying this file on <cfoutput >#now()#</cfoutput>
