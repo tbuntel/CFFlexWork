@@ -1,8 +1,17 @@
 <!--- Get data --->
 <cfset data=EntityLoad("Books")>
 <!--- Display titles --->
-<cfoutput>
-<cfloop array="#data#" index="book">
-    #book.GetTitle()#<br>
-</cfloop>
-</cfoutput>
+
+<table>
+<tr>
+<th>Title</th>
+</tr>
+	
+	<cfoutput>
+	<cfloop array="#data#" index="book">
+		<tr>
+		<td>#book.GetTitle()#</td>
+		</tr>
+	</cfloop>
+	</cfoutput>
+</table>
