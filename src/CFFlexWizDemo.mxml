@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" 
-			   xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768">
+			   xmlns:mx="library://ns.adobe.com/flex/halo" minWidth="1024" minHeight="768" xmlns:booksservice="services.booksservice.*">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.controls.Alert;
+
+			protected function dataGrid_creationCompleteHandler(event:FlexEvent):void
+			{
+				getAllBOOKSResult.token = bOOKSService.getAllBOOKS();
+			}
+
+		]]>
+	</fx:Script>
 	<fx:Declarations>
+		<s:CallResponder id="getAllBOOKSResult"/>
+		<booksservice:BOOKSService id="bOOKSService" fault="Alert.show(event.fault.faultString + '\n' + event.fault.faultDetail)" showBusyCursor="true"/>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<mx:DataGrid x="71" y="60">
+	<mx:DataGrid x="71" y="60" id="dataGrid" creationComplete="dataGrid_creationCompleteHandler(event)" dataProvider="{getAllBOOKSResult.lastResult}">
 		<mx:columns>
-			<mx:DataGridColumn headerText="Column 1" dataField="col1"/>
-			<mx:DataGridColumn headerText="Column 2" dataField="col2"/>
-			<mx:DataGridColumn headerText="Column 3" dataField="col3"/>
+			<mx:DataGridColumn headerText="BOOKID" dataField="BOOKID"/>
+			<mx:DataGridColumn headerText="AUTHORID" dataField="AUTHORID"/>
+			<mx:DataGridColumn headerText="TITLE" dataField="TITLE"/>
+			<mx:DataGridColumn headerText="BOOKDESCRIPTION" dataField="BOOKDESCRIPTION"/>
+			<mx:DataGridColumn headerText="BOOKIMAGE" dataField="BOOKIMAGE"/>
+			<mx:DataGridColumn headerText="THUMBNAILIMAGE" dataField="THUMBNAILIMAGE"/>
+			<mx:DataGridColumn headerText="ISSPOTLIGHT" dataField="ISSPOTLIGHT"/>
+			<mx:DataGridColumn headerText="GENRE" dataField="GENRE"/>
 		</mx:columns>
 	</mx:DataGrid>
 </s:Application>
