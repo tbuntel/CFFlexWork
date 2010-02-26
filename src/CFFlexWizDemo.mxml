@@ -5,4 +5,11 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
+	<mx:DataGrid x="71" y="60">
+		<mx:columns>
+			<mx:DataGridColumn headerText="Column 1" dataField="col1"/>
+			<mx:DataGridColumn headerText="Column 2" dataField="col2"/>
+			<mx:DataGridColumn headerText="Column 3" dataField="col3"/>
+		</mx:columns>
+	</mx:DataGrid>
 </s:Application>
