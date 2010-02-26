@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>CFFlexWork</name>
+	<name>CFFlexWizDemo</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>com.adobe.flexbuilder.project.flexbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>com.adobe.ide.coldfusion.projectNature</nature>
+		<nature>com.adobe.flexbuilder.project.flexnature</nature>
+		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>services/BOOKSService.cfc</name>
+			<type>1</type>
+			<location>/Applications/ColdFusion9/wwwroot/CFFlexWork/cfc/BOOKSService.cfc</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model xmlns="http://ns.adobe.com/Fiber/1.0">
+  <annotation name="ActionScriptGeneration">
+    <item name="FullyQualifyReferences">true</item>
+  </annotation>
+  <service name="BOOKSService">
+    <annotation name="ActionScriptGeneration">
+      <item name="Source">CFFlexWork.cfc.BOOKSService</item>
+      <item name="ServiceType">RemoteObject</item>
+      <item name="Package">services.booksservice</item>
+      <item name="Destination">ColdFusion</item>
+    </annotation>
+    <annotation name="ASFilesGenerated">
+      <item name="ASFilesGenerated">services/booksservice/_Super_BOOKSService.as~#~services/booksservice/BOOKSService.as~#~</item>
+    </annotation>
+    <annotation name="ServiceTypeGroup">
+      <item name="ServiceBackendType">ColdFusion</item>
+    </annotation>
+    <annotation name="ServiceConfig">
+      <item name="DEFAULT_ENTITY_PACKAGE">valueObjects</item>
+      <item name="COLDFUSION_SERVER_ROOT_URL">http://localhost:8500/</item>
+      <item name="LINKED_FILE">BOOKSService.cfc</item>
+      <item name="COLDFUSION_SERVER_CONTEXT_ROOT"></item>
+      <item name="CFC_CLASS_NAME">BOOKSService</item>
+      <item name="CFC_RELATIVE_LOCATION">CFFlexWork/cfc/BOOKSService.cfc</item>
+      <item name="ABSOLUTE_ENDPOINT">http://localhost:8500/flex2gateway/</item>
+      <item name="CFC_LOCATION">/Applications/ColdFusion9/wwwroot/CFFlexWork/cfc/BOOKSService.cfc</item>
+    </annotation>
+    <function name="getBOOKS_paged" arguments="startIndex:integer,numItems:integer" return-type="BOOKS[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">float,float</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+    <function name="updateBOOKS" arguments="item:BOOKS" return-type="void">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">opaque</item>
+      </annotation>
+    </function>
+    <function name="count" return-type="float">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">float</item>
+      </annotation>
+    </function>
+    <function name="getBOOKS" arguments="BOOKID:float" return-type="BOOKS[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">float</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+    <function name="getAllBOOKS" return-type="BOOKS[]">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+    <function name="deleteBOOKS" arguments="BOOKID:float" return-type="void">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">float</item>
+      </annotation>
+    </function>
+    <function name="createBOOKS" arguments="item:BOOKS" return-type="float">
+      <annotation name="analyze group">
+        <item name="analyzed">true</item>
+      </annotation>
+      <annotation name="original signature">
+        <item name="inputParams">opaque</item>
+        <item name="returnType">opaque</item>
+      </annotation>
+    </function>
+  </service>
+  <entity name="BOOKS" persistent="true">
+    <annotation name="EntityProperties">
+      <item name="EntityOriginalName">BOOKS</item>
+    </annotation>
+    <annotation name="service Group">
+      <item name="service">BOOKSService</item>
+    </annotation>
+    <annotation name="ServerProperties">
+      <item name="IncludeRemoteClass">nonempty</item>
+    </annotation>
+    <annotation name="DataManagement">
+      <item name="managingService">BOOKSService</item>
+      <item name="create">createBOOKS</item>
+      <item name="update">updateBOOKS</item>
+      <item name="get">getBOOKS</item>
+      <item name="delete">deleteBOOKS</item>
+      <item name="fillFunc">getBOOKS_paged,getAllBOOKS</item>
+    </annotation>
+    <annotation name="getBOOKS">
+      <item name="propertySpecifier">BOOKID,AUTHORID,TITLE,BOOKDESCRIPTION,BOOKIMAGE,THUMBNAILIMAGE,ISSPOTLIGHT,GENRE</item>
+    </annotation>
+    <annotation name="getBOOKS_paged">
+      <item name="propertySpecifier">BOOKID,AUTHORID,TITLE,BOOKDESCRIPTION,BOOKIMAGE,THUMBNAILIMAGE,ISSPOTLIGHT,GENRE</item>
+      <item name="pagingEnabled">true</item>
+      <item name="positionalPagingParameters">true</item>
+      <item name="countOperation">count</item>
+    </annotation>
+    <annotation name="getAllBOOKS">
+      <item name="propertySpecifier">BOOKID,AUTHORID,TITLE,BOOKDESCRIPTION,BOOKIMAGE,THUMBNAILIMAGE,ISSPOTLIGHT,GENRE</item>
+    </annotation>
+    <annotation name="ActionScriptGeneration">
+      <item name="Package">valueObjects</item>
+    </annotation>
+    <annotation name="ASFilesGenerated">
+      <item name="ASFilesGenerated">valueObjects/_BOOKSEntityMetadata.as~#~valueObjects/_Super_BOOKS.as~#~valueObjects/BOOKS.as~#~</item>
+    </annotation>
+    <id name="BOOKID" type="float"/>
+    <property name="AUTHORID" type="float" required="true"/>
+    <property name="TITLE" type="string" required="true"/>
+    <property name="BOOKDESCRIPTION" type="string" required="true"/>
+    <property name="BOOKIMAGE" type="string" required="true"/>
+    <property name="THUMBNAILIMAGE" type="string" required="true"/>
+    <property name="ISSPOTLIGHT" type="string" required="true"/>
+    <property name="GENRE" type="string" required="true"/>
+  </entity>
+</model>
